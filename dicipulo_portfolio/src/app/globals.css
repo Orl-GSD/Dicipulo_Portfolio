@@ -146,6 +146,16 @@
   background-size: 48px 48px;
 }
 
+.header {
+  font-size: 6rem;
+  line-height: 1;
+  font-weight: 900;
+  color: #2563eb; 
+  margin-bottom: 2rem;
+  letter-spacing: 0.025em;
+  font-family: 'Jersey', sans-serif;  
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
