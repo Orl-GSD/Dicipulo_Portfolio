@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export interface ProjectCardProps {
     title: string;
@@ -9,7 +10,7 @@ export interface ProjectCardProps {
     type: string;
     date: string;
     status: 'In Progress' | 'Finished';
-    onClick?: () => void;
+    href: string
 }
 
 const ProjectCard = ({
@@ -20,13 +21,13 @@ const ProjectCard = ({
     type,
     date,
     status,
-    onClick,
+    href,
 }: ProjectCardProps) => {
     return (
-        <button
-            onClick={onClick}
-            className=" font-albert rounded-md w-full max-w-6xl group flex flex-col md:flex-row bg-white border-2 border-slate-400 p-4 gap-6 md:gap-10 text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] focus:outline-none focus:ring-4 focus:ring-blue-600/50"
-        >
+            <Link
+                href={href}
+                className="font-albert rounded-md w-full max-w-6xl group flex flex-col md:flex-row bg-white border-2 border-slate-400 p-4 gap-6 md:gap-10 text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] focus:outline-none focus:ring-4 focus:ring-blue-600/50"
+            >
             {/* Left: Image Section */}
             <div className="relative w-full md:w-1/2 min-h-62.5 md:min-h-87.5 shrink-0 overflow-hidden bg-slate-100 rounded-md border-2 border-slate-200 filter">
                 <Image
@@ -35,7 +36,7 @@ const ProjectCard = ({
                     fill
                     className="object-cover object-top"
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    loading="lazy"
+                    loading="eager"
                 />
                 
                 {/* Status Badge */}
@@ -51,7 +52,7 @@ const ProjectCard = ({
             </div>
 
             {/* Right: Content Section */}
-            <div className="flex flex-col flex-1 justify-center py-2 w-full md:w-1/2 pr-8">
+            <div className="flex flex-col flex-1 py-2 w-full pr-8 justify-center">
                 <h3 className="font-jersey text-3xl md:text-4xl text-slate-900 mb-2">
                     {title}
                 </h3>
@@ -82,12 +83,12 @@ const ProjectCard = ({
                 </div>
 
                 <div className="">
-                    <div className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-md text-sm font-medium transition-colors bg-blue-600 text-white group-hover:bg-blue-700">
+                    <div className="w-full md:w-48 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-md text-sm font-medium transition-colors bg-blue-600 text-white group-hover:bg-blue-700">
                         View Project
                     </div>
                 </div>
             </div>
-        </button>
+        </Link>
     );
 }
 
