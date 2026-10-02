@@ -1,13 +1,52 @@
-import React from 'react'
-import TechText from './TechText'
+'use client'; // Required for window event listeners
+
+import React, { useState, useEffect } from 'react';
+import TechText from './TechText';
 
 const Hero = () => {
+  // Track dynamic dimensions for the text and container
+  const [dimensions, setDimensions] = useState({
+    fontSize: 300,
+    height: 320
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      
+      if (width < 640) {
+        // Mobile screens
+        setDimensions({ fontSize: 220, height: 300 });
+      } else if (width < 1024) {
+        // Tablet screens
+        setDimensions({ fontSize: 200, height: 250 });
+      } else {
+        // Desktop screens
+        setDimensions({ fontSize: 300, height: 320 });
+      }
+    };
+
+    // Set initial size
+    handleResize();
+
+    // Listen for resize events
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div style={{ width: '100%', height: '320px', position: 'relative' }}>
-    <TechText
+    <div style={{ 
+      width: '100%', 
+      height: `${dimensions.height}px`, 
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
+      <TechText
         text="EARL"
         fontWeight={600}
-        fontSize={300}
+        fontSize={dimensions.fontSize} // Now dynamic!
         reveal="letter"
         dashLength={4}
         dashGap={4}
@@ -25,9 +64,9 @@ const Hero = () => {
         labels
         draggable={false}
         sweep
-    />
+      />
     </div>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

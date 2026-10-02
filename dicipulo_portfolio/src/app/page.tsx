@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
 import Divider from "@/components/Divider";
-import Ruler from "@/components/Ruler";
 import ProjectCard from "@/components/ProjectCard" 
 import Button from "@/components/Button";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import HeroWrapper from "@/components/HeroWrapper";
 
 export default function Home() {
   return (
@@ -18,33 +17,10 @@ export default function Home() {
         <Navbar />
       </div>
 
-      {/* <Ruler side="left" tickCount={100} />
-      <Ruler side="right" tickCount={100} /> */}
 
-    {/* HERO SECTION */}
-      <div className="flex flex-col gap-8 items-center justify-center">
-        <div className="flex mt-36 relative">
-          {/* Left */}
-          <div className="flex flex-col justify-between z-1">
-            <div className="px-2 py-2 bg-blue-600 translate-x-2 -translate-y-2 rounded-full" />
-            <div className="px-2 py-2 bg-blue-600 translate-x-2 translate-y-2 rounded-full" />
-          </div>
-
-          {/* Center */}
-          <div className="px-32 border-2 border-blue-600 bg-white/50 backdrop-blur-sm">
-            <Hero />
-          </div>
-
-          {/* Right */}
-          <div className="flex flex-col justify-between">
-            <div className="px-2 py-2 bg-blue-600 -translate-x-2 -translate-y-2 rounded-full" />
-            <div className="px-2 py-2 bg-blue-600 -translate-x-2 translate-y-2 rounded-full" />
-          </div>
-        </div>
-
-        <div className="w-154 font-albert font-medium text-2xl text-center text-text">
-          <p><span className="font-black text-mainblue">UI/UX Designer</span> and <span className="font-black text-mainblue">Layout & Graphic Designer</span>, creating creative, functional, and user-centred designs</p>
-        </div>
+      {/* HERO SECTION */}
+      <div >
+        <HeroWrapper />
       </div>
 
       {/* RECENT PROJECTS */}
@@ -89,50 +65,61 @@ export default function Home() {
       {/* ABOUT ME */}
       <Divider text="About Me"/>
       
-      <div className="flex flex-col-reverse xl:flex-row w-full items-center justify-center gap-24 px-40 mb-24">
+      <div className="flex flex-col-reverse lg:flex-row w-full items-center justify-center gap-12 xl:gap-24 px-6 md:px-16 xl:px-40 mb-24">
 
-        {/* Left Column */}
-        <div className=" space-y-16 flex-col">
+        {/* --- LEFT COLUMN: TEXT & BUTTON --- */}
+        {/* Added text-center on mobile, then xl:text-left on desktop for better alignment */}
+        <div className="flex flex-col space-y-8 lg:space-y-12 items-center lg:items-start text-center lg:text-left">
+          
           <div>
-            <p className="text-5xl font-bold mb-8">HELLO THERE!</p>
-            <p className="w-lg font-medium">
-              I am <span className="font-bold text-mainblue">Earl Dicipulo</span>, consectetur adipiscing elit. Nulla nisl libero, eleifend id nibh quis, aliquet volutpat ligula. 
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 xl:mb-8 text-slate-900">
+              HELLO THERE!
+            </h2>
+            
+            {/* Replaced 'w-lg' with 'w-full max-w-lg' so it doesn't break on small screens */}
+            <p className="w-full max-w-lg font-medium text-slate-700 leading-relaxed">
+              I am <span className="font-bold text-blue-600">Earl Dicipulo</span>, consectetur adipiscing elit. Nulla nisl libero, eleifend id nibh quis, aliquet volutpat ligula. 
               Vivamus tempor velit et purus aliquam, in vestibulum sem fermentum. Nam sodales metus orci, quis finibus magna dictum at.
               <br/><br/>
               Donec sed nunc eget purus dignissim elementum. Phasellus orci enim, pellentesque et urna ac, aliquam suscipit elit. 
               Sed vitae elit nec ex fringilla sodales. Aenean aliquet diam id lorem consectetur sagittis nec quis nulla.
             </p>
           </div>
+          
           <Button variant="primary">Know More About Me</Button>
         </div>
 
-        {/* Right Column */}
-        <div className="flex flex-row relative">
-          {/* Left */}
-          <div className="flex flex-col justify-between z-1">
-            <div className="px-2 py-2 bg-blue-600 translate-x-2 -translate-y-2 rounded-full" />
-            <div className="px-2 py-2 bg-blue-600 translate-x-2 translate-y-2 rounded-full" />
-          </div>
+        {/* --- RIGHT COLUMN: IMAGE & BOUNDING BOX --- */}
+        {/* 
+          Using the 'Absolute Positioning' method for the Figma handles 
+          that we established in the Hero section. It is perfectly responsive!
+        */}
+        <div className="relative p-4 border-2 border-blue-600 bg-white">
+          
+          {/* The 4 Corner Handles */}
+          <div className="absolute -top-2 -left-2 w-4 h-4 bg-blue-600 rounded-full" />
+          <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-600 rounded-full" />
+          <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-blue-600 rounded-full" />
+          <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-blue-600 rounded-full" />
 
-        {/* Center */}
-        <div className="p-4 border-2 border-mainblue">
-          <div className="w-100 h-100 relative rounded-full overflow-hidden group">
+          {/* 
+            IMAGE CONTAINER SIZING:
+            - Mobile: w-64 h-64 (256px)
+            - Tablet: md:w-80 md:h-80 (320px)
+            - Desktop: xl:w-96 xl:h-96 (384px)
+          */}
+          <div className="relative w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden group bg-slate-100">
             <Image 
               src="/images/ThisIsMe.jpg"
               alt="Profile Picture"
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
+
         </div>
 
-          {/* Right */}
-          <div className="flex flex-col justify-between">
-            <div className="px-2 py-2 bg-blue-600 -translate-x-2 -translate-y-2 rounded-full" />
-            <div className="px-2 py-2 bg-blue-600 -translate-x-2 translate-y-2 rounded-full" />
-          </div>
-        </div>
       </div>
 
       {/* FOOTER */}

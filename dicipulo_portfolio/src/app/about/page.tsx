@@ -38,45 +38,48 @@ export default function AboutPage() {
         <h1 className="header">About Me</h1>
         
         {/* PERSONAL INFORMATION */}
-        <div className='flex flex-row gap-24 w-full mt-12'>
+        <div className='flex flex-col xl:flex-row items-center justify-center gap-12 xl:gap-24 w-full mt-12 px-6 md:px-12'>
 
-          {/* LEFT COLUMN */}
-          <div className='flex flex-row relative'>
+          {/* --- LEFT COLUMN: IMAGE & BOUNDING BOX --- */}
+          {/* We use Absolute Positioning for the corner dots so they never break layout! */}
+          <div className="relative p-4 border-2 border-blue-600 bg-white shrink-0">
+            
+            {/* The 4 Figma Corner Handles */}
+            <div className="absolute -top-2 -left-2 w-4 h-4 bg-blue-600 rounded-full" />
+            <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-600 rounded-full" />
+            <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-blue-600 rounded-full" />
+            <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-blue-600 rounded-full" />
 
-            {/* Left */}
-            <div className="flex flex-col justify-between z-1">
-              <div className="px-2 py-2 bg-blue-600 translate-x-2 -translate-y-2 rounded-full" />
-              <div className="px-2 py-2 bg-blue-600 translate-x-2 translate-y-2 rounded-full" />
+            {/* 
+              Responsive Image Sizing:
+              - Mobile: 64x64 (256px)
+              - Tablet: 80x80 (320px)
+              - Desktop: 96x96 (384px)
+            */}
+            <div className="w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96 relative rounded-full overflow-hidden group bg-slate-100">
+              <Image 
+                src="/images/ThisIsMe.jpg"
+                alt="Profile Picture"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
             </div>
-
-            {/* Center */}
-            <div className="p-4 border-2 border-mainblue">
-              <div className="w-100 h-100 relative rounded-full overflow-hidden group">
-                <Image 
-                  src="/images/ThisIsMe.jpg"
-                  alt="Profile Picture"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-            </div>
-
-
-            {/* Right */}
-            <div className="flex flex-col justify-between">
-              <div className="px-2 py-2 bg-blue-600 -translate-x-2 -translate-y-2 rounded-full" />
-              <div className="px-2 py-2 bg-blue-600 -translate-x-2 translate-y-2 rounded-full" />
-            </div>                        
 
           </div>
 
-          {/* RIGHT COLUMN */}
-          <div className=" space-y-16 flex flex-col justify-center">
+          {/* --- RIGHT COLUMN: TEXT --- */}
+          {/* Centered on mobile, aligned left on desktop */}
+          <div className="flex flex-col justify-center items-center xl:items-start text-center xl:text-left">
             <div>
-              <p className="text-5xl font-bold mb-8">Earl Geibriel Dicipulo</p>
-              <p className="w-lg font-medium">
-                I am <span className="font-bold text-mainblue">Earl Dicipulo</span>, consectetur adipiscing elit. Nulla nisl libero, eleifend id nibh quis, aliquet volutpat ligula. 
+              {/* Responsive font sizing for the name */}
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 xl:mb-8 text-slate-900">
+                Earl Geibriel Dicipulo
+              </h2>
+              
+              {/* Replaced invalid 'w-lg' with 'w-full max-w-lg' */}
+              <p className="w-full max-w-lg font-medium text-slate-700 leading-relaxed">
+                I am <span className="font-bold text-blue-600">Earl Dicipulo</span>, consectetur adipiscing elit. Nulla nisl libero, eleifend id nibh quis, aliquet volutpat ligula. 
                 Vivamus tempor velit et purus aliquam, in vestibulum sem fermentum. Nam sodales metus orci, quis finibus magna dictum at.
                 <br/><br/>
                 Donec sed nunc eget purus dignissim elementum. Phasellus orci enim, pellentesque et urna ac, aliquam suscipit elit. 
@@ -155,7 +158,10 @@ export default function AboutPage() {
 
       </main>
 
-      <Footer />
+      <div className='mt-32'>
+        <Footer />
+      </div>
+
     </div>
   );
 }
