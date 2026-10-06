@@ -26,7 +26,7 @@ const ProjectCard = ({
     return (
             <Link
                 href={href}
-                className="font-albert rounded-md w-full max-w-6xl group flex flex-col md:flex-row bg-white border-2 border-slate-400 p-4 gap-6 md:gap-10 text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] focus:outline-none focus:ring-4 focus:ring-blue-600/50"
+                className="font-albert rounded-md w-full group flex flex-col md:flex-row bg-white border-2 border-slate-400 p-4 gap-6 md:gap-6 text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] focus:outline-none focus:ring-4 focus:ring-blue-600/50"
             >
             {/* Left: Image Section */}
             <div className="relative w-full md:w-1/2 min-h-62.5 md:min-h-87.5 shrink-0 overflow-hidden bg-slate-100 rounded-md border-2 border-slate-200 filter">
@@ -41,7 +41,7 @@ const ProjectCard = ({
                 
                 {/* Status Badge */}
                 <div 
-                    className={`absolute top-3 left-3 px-3 py-1 text-xs font-bold rounded-full shadow-sm ${
+                    className={`absolute top-3 left-3 px-4 py-1 text-xs font-bold rounded-full shadow-sm ${
                         status === 'Finished' 
                         ? 'bg-green-100 text-green-800' 
                         : 'bg-amber-100 text-amber-800'
@@ -52,7 +52,7 @@ const ProjectCard = ({
             </div>
 
             {/* Right: Content Section */}
-            <div className="flex flex-col flex-1 py-2 w-full pr-8 justify-center">
+            <div className="flex flex-col flex-1 pr-0 md:pr-6 w-full justify-center">
                 <h3 className="font-jersey text-3xl md:text-4xl text-slate-900 mb-2">
                     {title}
                 </h3>

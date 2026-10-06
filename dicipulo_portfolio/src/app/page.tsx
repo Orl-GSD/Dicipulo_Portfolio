@@ -8,6 +8,7 @@ import Button from "@/components/Button";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import HeroWrapper from "@/components/HeroWrapper";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -19,14 +20,14 @@ export default function Home() {
 
 
       {/* HERO SECTION */}
-      <div >
+      <div className='z-1'>
         <HeroWrapper />
       </div>
 
       {/* RECENT PROJECTS */}
       <Divider text="Recent Projects"/>
 
-      <div className="flex flex-col items-center justify-center w-full gap-12 px-8 sm:px-12 md:px-16">
+      <div className="flex flex-col items-center justify-center w-full gap-12 px-8 sm:px-12 md:px-32">
         <ProjectCard 
           title="Banaag Diwa '25 Website"
           description="Interactive Website for the Banaag Diwa '25: Nasaag Physical Release"
@@ -59,13 +60,17 @@ export default function Home() {
           status="Finished"
           href="/projects/election-watch"
         />
+        
+        <div className='z-2'>
+          <Link href='/projects'><Button variant='primary_gray'>View Other Projects</Button></Link>
+        </div>
       </div>
 
 
       {/* ABOUT ME */}
       <Divider text="About Me"/>
       
-      <div className="flex flex-col-reverse lg:flex-row w-full items-center justify-center gap-12 xl:gap-24 px-6 md:px-16 xl:px-40 mb-24">
+      <div className="flex flex-col-reverse lg:flex-row w-full items-center justify-center gap-12 xl:gap-24 px-6 md:px-16 xl:px-40 mb-48">
 
         {/* --- LEFT COLUMN: TEXT & BUTTON --- */}
         {/* Added text-center on mobile, then xl:text-left on desktop for better alignment */}

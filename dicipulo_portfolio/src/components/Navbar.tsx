@@ -3,6 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Button from './Button';
+import Image from 'next/image';
+import { IoMenu } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
+import { FiDownload } from "react-icons/fi";
+
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,64 +27,71 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
-    { num: '01', name: 'About Me', href: '/about' },
-    { num: '02', name: 'Projects', href: '/projects' },
-    { num: '03', name: 'Resume', href: '/resume' },
-    { num: '04', name: 'Get in Touch', href: 'mailto:your.email@example.com' },
+    { num: '// 01', name: 'About Me', href: '/about' },
+    { num: '// 02', name: 'Projects', href: '/projects' },
+    { num: '// 03', name: 'Resume', href: '/resume' },
+    { num: '// 04', name: 'Get in Touch', href: 'mailto:egsdworks@gmail.com' },
   ];
 
   return (
     <>
-      {/* --- TOP NAVIGATION BAR (WHITE) --- */}
-      {/* Changed back to z-50 so the blue menu can slide OVER it */}
-      <nav className='fixed top-0 z-50 flex items-center justify-between w-full px-6 md:px-12 py-4 border-b-2 border-blue-600 bg-white'>
+      {/* Desktop Navbar */}
+      <nav className='fixed top-0 z-50 flex items-center justify-between w-full px-6 md:px-12 py-2.5 border-b-2 border-blue-600 bg-white'>
 
         <Link href="/">
-          <p className='font-albert font-black text-2xl text-blue-600 cursor-pointer'>EARL</p>
+          <div className='h-full'>
+            <Image 
+              src="/images/Logo.png"
+              alt="Dicipulo Portfolio Logo"
+              width={128}
+              height={128}
+              priority
+            />
+          </div>
         </Link>
 
         {/* Desktop Menu */}
-        <div className='hidden md:flex gap-12 items-center'>
+        <div className='hidden md:flex gap-2 items-center'>
           <Link href="/about"><Button variant="ghost">About Me</Button></Link>
           <Link href="/projects"><Button variant="ghost">Projects</Button></Link>
-          <Link href="/resume"><Button variant="ghost">Resume</Button></Link>
+          <Link href="/resume"><Button variant="ghost" rightIcon={<FiDownload />}>Resume</Button></Link>
           <a href="mailto:your.email@example.com">
             <Button variant="primary">Get in Touch</Button>
           </a>
         </div>
 
-        {/* Mobile Hamburger Button */}
-        {/* Only says MENU because CLOSE is handled inside the blue overlay */}
+        {/* Mobile Navbar */}
         <button 
           onClick={toggleMenu}
-          className="md:hidden flex items-center justify-center border-2 border-blue-600 bg-white text-blue-600 font-bold px-4 py-2 hover:bg-blue-50 transition-colors"
+          className="text-2xl md:hidden flex items-center justify-center bg-white text-blue-600 font-bold px-2 py-2 hover:bg-blue-50 transition-colors rounded-sm"
         >
-          MENU
+          <IoMenu />
         </button>
       </nav>
 
-      {/* --- STAGGERED FULL-SCREEN MENU (BLUE) --- */}
-      {/* z-[60] ensures it covers the z-50 white navbar completely */}
       <div 
-        className={`fixed inset-0 z-[60] bg-blue-600 flex flex-col justify-center px-8 md:px-24 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        className={`fixed inset-0 z-[60] bg-blue-600 flex flex-col justify-start px-8 md:px-24 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           isOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        {/* 
-          INNER MENU HEADER 
-          This slides down with the blue background, featuring a white logo and white close button.
-          The absolute positioning and padding perfectly match your main navbar!
-        */}
-        <div className="absolute top-0 left-0 w-full flex items-center justify-between px-6 md:px-12 py-4">
+        <div className="w-full flex items-center justify-between py-4">
           <Link href="/" onClick={closeMenu}>
-            <p className='font-albert font-black text-2xl text-white cursor-pointer'>EARL</p>
+            <div className='h-full brightness-0 invert'>
+              <Image 
+                src="/images/Logo.png"
+                alt="Dicipulo Portfolio Logo"
+                width={128}
+                height={128}
+                priority
+              />
+            </div>
           </Link>
           
           <button 
             onClick={closeMenu}
-            className="flex items-center justify-center border-2 border-white bg-blue-600 text-white font-bold px-4 py-2 hover:bg-blue-700 transition-colors"
+            className="text-2xl flex items-center justify-center  bg-blue-600 text-white font-bold px-2.5 py-2 hover:bg-blue-700 transition-colors"
           >
-            CLOSE
+            <IoClose />
           </button>
         </div>
 
@@ -97,7 +110,7 @@ const Navbar = () => {
                 <span className="font-jersey text-xl md:text-3xl text-blue-300 group-hover:text-white transition-colors duration-300">
                   {link.num}
                 </span>
-                <span className="font-albert text-5xl md:text-7xl font-black text-white group-hover:translate-x-4 transition-transform duration-300">
+                <span className="font-albert text-6xl md:text-7xl font-black text-white group-hover:translate-x-4 transition-transform duration-300">
                   {link.name}
                 </span>
               </Link>

@@ -31,7 +31,7 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="flex flex-col min-h-screen font-albert">
+    <div className=" pattern-background flex flex-col min-h-screen font-albert">
       <Navbar />
       
       <main className="flex-1 flex flex-col items-center pt-32 px-6 md:px-12 w-full max-w-6xl mx-auto space-y-24">
@@ -40,22 +40,13 @@ export default function AboutPage() {
         {/* PERSONAL INFORMATION */}
         <div className='flex flex-col xl:flex-row items-center justify-center gap-12 xl:gap-24 w-full mt-12 px-6 md:px-12'>
 
-          {/* --- LEFT COLUMN: IMAGE & BOUNDING BOX --- */}
-          {/* We use Absolute Positioning for the corner dots so they never break layout! */}
           <div className="relative p-4 border-2 border-blue-600 bg-white shrink-0">
             
-            {/* The 4 Figma Corner Handles */}
             <div className="absolute -top-2 -left-2 w-4 h-4 bg-blue-600 rounded-full" />
             <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-600 rounded-full" />
             <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-blue-600 rounded-full" />
             <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-blue-600 rounded-full" />
 
-            {/* 
-              Responsive Image Sizing:
-              - Mobile: 64x64 (256px)
-              - Tablet: 80x80 (320px)
-              - Desktop: 96x96 (384px)
-            */}
             <div className="w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96 relative rounded-full overflow-hidden group bg-slate-100">
               <Image 
                 src="/images/ThisIsMe.jpg"
@@ -68,16 +59,12 @@ export default function AboutPage() {
 
           </div>
 
-          {/* --- RIGHT COLUMN: TEXT --- */}
-          {/* Centered on mobile, aligned left on desktop */}
           <div className="flex flex-col justify-center items-center xl:items-start text-center xl:text-left">
             <div>
-              {/* Responsive font sizing for the name */}
               <h2 className="text-4xl md:text-5xl font-bold mb-6 xl:mb-8 text-slate-900">
                 Earl Geibriel Dicipulo
               </h2>
               
-              {/* Replaced invalid 'w-lg' with 'w-full max-w-lg' */}
               <p className="w-full max-w-lg font-medium text-slate-700 leading-relaxed">
                 I am <span className="font-bold text-blue-600">Earl Dicipulo</span>, consectetur adipiscing elit. Nulla nisl libero, eleifend id nibh quis, aliquet volutpat ligula. 
                 Vivamus tempor velit et purus aliquam, in vestibulum sem fermentum. Nam sodales metus orci, quis finibus magna dictum at.
@@ -103,7 +90,7 @@ export default function AboutPage() {
                     <h3 className="text-xl font-bold text-slate-700 mb-6 border-b-2 border-slate-100 pb-2">
                       Design & Prototyping
                     </h3>
-                    {/* 3 columns on desktop, 2 on mobile. 6 items fit perfectly. */}
+
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                       {designSkills.map((skill, index) => (
                         <SkillBox 
@@ -121,7 +108,7 @@ export default function AboutPage() {
                     <h3 className="text-xl font-bold text-slate-700 mb-6 border-b-2 border-slate-100 pb-2">
                       Frontend Development
                     </h3>
-                    {/* 3 columns on desktop, 2 on mobile. 3 items fit perfectly on desktop. */}
+
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                       {devSkills.map((skill, index) => (
                         <SkillBox 

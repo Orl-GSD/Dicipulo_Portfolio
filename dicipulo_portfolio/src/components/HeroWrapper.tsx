@@ -56,7 +56,7 @@ const HeroWrapper = () => {
       <div className="flex mt-24 md:mt-36 w-full justify-center">
         
 
-        <div className="relative flex items-center justify-center w-full max-w-[80vw] md:max-w-2xl px-4 sm:px-16 md:px-32">
+        <div className="font-jersey relative flex items-center justify-center w-[22rem] sm:w-lg md:w-xl lg:w-[50rem] px-4 md:px-16">
           
           <motion.div 
             variants={boxVariants}
@@ -76,7 +76,19 @@ const HeroWrapper = () => {
             animate="visible"
             className="z-10 w-full flex justify-center py-4"
           >
-            <Hero />
+          <div className="flex flex-col text-center items-center justify-center py-6 sm:py-10 md:py-12 w-full">
+            <p className="text-mainblue font-jersey font-black uppercase tracking-tight
+              text-6xl leading-[0.85] 
+              xs:text-7xl xs:leading-[0.85]
+              sm:text-8xl sm:leading-[0.85]
+              md:text-[120px] md:leading-[0.85] 
+              lg:text-[160px] lg:leading-[0.85]
+            ">
+              EARL
+              <br />
+              DICIPULO
+            </p>
+          </div>
           </motion.div>
           
         </div>
@@ -90,11 +102,13 @@ const HeroWrapper = () => {
         animate="visible"
         className="w-full max-w-2xl font-albert font-medium text-lg md:text-2xl text-center text-text px-4 mt-2"
       >
-        <p>
+      <div className="w-full max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl text-center px-4 sm:px-6 mx-auto mt-1 sm:mt-2 md:mt-4">
+        <p className="font-albert font-medium text-sm sm:text-base md:text-xl lg:text-2xl text-text leading-relaxed tracking-normal">
           <span className="font-black text-mainblue">UI/UX Designer</span> and{' '}
-          <span className="font-black text-mainblue">Layout & Graphic Designer</span>, 
+          <span className="font-black text-mainblue">Layout & Graphic Designer</span>,{' '}
           creating creative, functional, and user-centred designs
         </p>
+      </div>
       </motion.div>
       
     </div>
