@@ -19,32 +19,43 @@ const ProjectCard = ({
   status,
   href,
 }: ProjectCardProps) => {
-  return (
-    <Link
-      href={href}
-      className="font-albert rounded-xl w-full group flex flex-col bg-white border border-slate-300 overflow-hidden text-left transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] focus:outline-none focus:ring-4 focus:ring-blue-600/40"
-    >
-      {/* 4:3 Aspect Ratio Image Section */}
-      <div className="relative w-full aspect-[4/3] shrink-0 overflow-hidden bg-slate-100 border-b border-slate-200">
-        <Image
-          src={imageSrc}
-          alt={`Thumbnail for ${title}`}
-          fill
-          className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+    return (
+            <Link
+                href={href}
+                className="font-albert rounded-md w-full group flex flex-col md:flex-row bg-white border-2 border-slate-400 p-4 gap-6 md:gap-6 text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] focus:outline-none focus:ring-4 focus:ring-blue-600/50"
+            >
+            {/* Left: Image Section */}
+            <div className="relative w-full md:w-1/2 min-h-62.5 md:min-h-87.5 shrink-0 overflow-hidden bg-slate-100 rounded-md border-2 border-slate-200 filter">
+                <Image
+                    src={imageSrc}
+                    alt={`Thumbnail for ${title}`}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="eager"
+                />
+                
+                {/* Status Badge */}
+                <div 
+                    className={`absolute top-3 left-3 px-4 py-1 text-xs font-bold rounded-full shadow-sm ${
+                        status === 'Finished' 
+                        ? 'bg-green-100 text-green-800' 
+                        : 'bg-amber-100 text-amber-800'
+                    }`}
+                >
+                    {status}
+                </div>
+            </div>
 
-        {/* Status Badge */}
-        <div
-          className={`absolute top-3 left-3 px-3 py-1 text-xs font-semibold rounded-full shadow-sm ${
-            status === 'Finished'
-              ? 'bg-emerald-100 text-emerald-800'
-              : 'bg-amber-100 text-amber-800'
-          }`}
-        >
-          {status}
-        </div>
-      </div>
+            {/* Right: Content Section */}
+            <div className="flex flex-col flex-1 pr-0 md:pr-6 w-full justify-center">
+                <h3 className="font-jersey text-3xl md:text-4xl text-slate-900 mb-2">
+                    {title}
+                </h3>
+                
+                <p className="text-slate-600 text-sm md:text-base mb-6">
+                    {description}
+                </p>
 
       {/* Content Section */}
       <div className="flex flex-col flex-1 w-full justify-between p-6">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiDownload } from 'react-icons/fi';
 
 const Footer = () => {
   return (
@@ -28,8 +29,9 @@ const Footer = () => {
           <a href="#" className="hover:text-blue-200 transition-colors">
             LinkedIn
           </a>
-          <a href="#" className="hover:text-blue-200 transition-colors">
-            Download Resume
+          <a href="#" className="hover:text-blue-200 transition-colors flex flex-row items-center gap-1">
+            <p>Download Resume</p>
+            <FiDownload />
           </a>
         </div>
 
