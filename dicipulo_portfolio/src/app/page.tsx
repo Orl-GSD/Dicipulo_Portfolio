@@ -27,14 +27,12 @@ export default function Home() {
       {/* RECENT PROJECTS */}
       <Divider text="Recent Projects"/>
 
-      <div className="flex flex-col items-center justify-center w-full gap-12 px-8 sm:px-12 md:px-32">
+      <div className="flex flex-col items-center justify-center w-full gap-12 px-8 sm:px-12 md:px-32 grid grid-cols-2 max-w-[90rem]">
         <ProjectCard 
           title="Banaag Diwa '25 Website"
           description="Interactive Website for the Banaag Diwa '25: Nasaag Physical Release"
           imageSrc="/banners/BanaagDiwa25.jpg"
-          roles="UI/UX Designer"
-          type="Web Design"
-          date="2026"
+          types={["Web Design"]}
           status="In Progress"
           href="/projects/banaagdiwa25"
         />
@@ -43,9 +41,7 @@ export default function Home() {
           title="Diwanag '26: What If?"
           description="Atenews' Art Folio 2026 Release"
           imageSrc="/banners/Diwanag26.jpg"
-          roles="Creative Direction, Illustrative Design"
-          type="Graphic Design"
-          date="2026"
+          types={["Graphic Design"]}
           status="Finished"
           href="/projects/diwanag26"
         />      
@@ -54,9 +50,7 @@ export default function Home() {
           title="Atenews Elections Watch 2026"
           description="SAMAHAN Sentral Board 2026 Elections Watch to guide student-voters"
           imageSrc="/banners/Atenews_ElectionsWatch2026.jpg"
-          roles="UI/UX Developer"
-          type="Web Design"
-          date="2026"
+          types={["Web Design"]}
           status="Finished"
           href="/projects/election-watch"
         />
