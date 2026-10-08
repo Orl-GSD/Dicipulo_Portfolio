@@ -142,7 +142,7 @@
 .pattern-background {
   background-color: #F9FBFF;
   opacity: 1;
-  background-image:  linear-gradient(#e3eaf8 1px, transparent 2.4000000000000004px), linear-gradient(to right, #e3eaf8 1px, #F9FBFF 2.4000000000000004px);
+  background-image:  linear-gradient(#f2f3f7 1px, transparent 2.4000000000000004px), linear-gradient(to right, #f2f3f7 1px, #F9FBFF 2.4000000000000004px);
   background-size: 48px 48px;
 }
 
@@ -150,10 +150,10 @@
   font-size: 6rem;
   line-height: 1;
   font-weight: 900;
-  color: #2563eb; 
+  color: #2563eb;
   margin-bottom: 2rem;
   letter-spacing: 0.025em;
-  font-family: 'Jersey', sans-serif;  
+  font-family: 'Jersey', sans-serif
 }
 
 :root {

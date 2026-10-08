@@ -59,7 +59,7 @@ export default function Home() {
           type="Web Design"
           date="2026"
           status="In Progress"
-          onClick={() => console.log('Card Clicked!')}
+          href="/projects/banaagdiwa25"
         />
 
         <ProjectCard 
@@ -70,18 +70,18 @@ export default function Home() {
           type="Graphic Design"
           date="2026"
           status="Finished"
-          onClick={() => console.log('Card Clicked!')}
+          href="/projects/diwanag26"
         />      
 
         <ProjectCard 
           title="Atenews Elections Watch 2026"
           description="SAMAHAN Sentral Board 2026 Elections Watch to guide student-voters"
           imageSrc="/banners/Atenews_ElectionsWatch2026.jpg"
-          roles="Project Manager, UI/UX Designer, Frontend Dev"
+          roles="UI/UX Developer"
           type="Web Design"
           date="2026"
           status="Finished"
-          onClick={() => console.log('Card Clicked!')}
+          href="/projects/election-watch"
         />
       </div>
 
@@ -89,7 +89,7 @@ export default function Home() {
       {/* ABOUT ME */}
       <Divider text="About Me"/>
       
-      <div className="flex flex-col-reverse xl:flex-row w-full items-center justify-between gap-24 px-40 mb-24">
+      <div className="flex flex-col-reverse xl:flex-row w-full items-center justify-center gap-24 px-40 mb-24">
 
         {/* Left Column */}
         <div className=" space-y-16 flex-col">
