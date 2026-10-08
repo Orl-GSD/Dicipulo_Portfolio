@@ -15,7 +15,7 @@ const SkillBox = ({ skillName, iconPath, category }: SkillBoxProps) => {
   return (
     <div 
       className={`
-        flex flex-col items-center justify-center py-8 rounded-xl bg-slate-50 border-2 
+        flex flex-col items-center justify-center p-8 rounded-xl bg-slate-50 border-2 
         transition-all duration-300 group cursor-default shadow-sm hover:-translate-y-1 hover:shadow-md
         text-slate-700
         ${categoryStyles[category]}
