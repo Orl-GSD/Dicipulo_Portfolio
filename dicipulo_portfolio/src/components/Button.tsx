@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 // Define the types for the component's props
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
-  variant?: 'primary' | 'secondary' | 'ghost' | 'iconOnly';
+  variant?: 'primary' | 'primary_gray' | 'secondary' | 'ghost' | 'iconOnly';
   href?: string;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
@@ -22,11 +22,12 @@ const Button = ({
   ...props
 }: ButtonProps) => {
   // Base styles applied to all variations
-  const baseStyles = 'inline-flex items-center justify-center font-albert text-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles = '  inline-flex items-center justify-center font-albert text-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
 
   // Styles for different variations
   const variants = {
     primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
+    primary_gray: 'bg-slate-600 text-white hover:bg-slate-700 focus:ring-slate-500 rounded-full',
     secondary: 'bg-mainwhite font-bold text-mainblue hover:bg-blue-100 focus:ring-gray-900',
     ghost: 'bg-transparent text-blue-600 hover:bg-blue-100 focus:ring-blue-500',
     iconOnly: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 rounded-full',
@@ -46,9 +47,9 @@ const Button = ({
   // Inner content structure
   const content = (
     <>
-      {leftIcon && <span className="shrink-0 flex items-center justify-center">{leftIcon}</span>}
+      {leftIcon && <span className="shrink-0 flex items-center justify-center mr-1">{leftIcon}</span>}
       {variant !== 'iconOnly' && children && <span>{children}</span>}
-      {rightIcon && <span className="shrink-0 flex items-center justify-center">{rightIcon}</span>}
+      {rightIcon && <span className="shrink-0 flex items-center justify-center ml-1">{rightIcon}</span>}
     </>
   );
 

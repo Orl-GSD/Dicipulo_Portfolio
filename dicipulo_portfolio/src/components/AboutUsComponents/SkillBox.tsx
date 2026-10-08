@@ -9,7 +9,7 @@ export interface SkillBoxProps {
 const SkillBox = ({ skillName, iconPath, category }: SkillBoxProps) => {
   const categoryStyles = {
     development: 'hover:bg-amber-500 hover:text-white border-slate-200 hover:border-amber-500',
-    design: 'hover:bg-lime-500 hover:text-white border-slate-200 hover:border-lime-500',
+    design: 'hover:bg-lime-600 hover:text-white border-slate-200 hover:border-lime-600',
   };
 
   return (

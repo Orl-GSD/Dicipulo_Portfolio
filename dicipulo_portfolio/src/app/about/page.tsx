@@ -32,7 +32,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen font-albert">
+    <div className=" pattern-background flex flex-col min-h-screen font-albert">
       <Navbar />
 
       <main className="flex-1 flex flex-col items-center px-4 sm:px-8 md:px-12 w-full max-w-7xl mx-auto space-y-16 md:space-y-24">
@@ -146,7 +146,10 @@ export default function AboutPage() {
         </div>
       </main>
 
-      <Footer />
+      <div className='mt-32'>
+        <Footer />
+      </div>
+
     </div>
   );
 }
