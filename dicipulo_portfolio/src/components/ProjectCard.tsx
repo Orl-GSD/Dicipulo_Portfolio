@@ -22,16 +22,16 @@ const ProjectCard = ({
     return (
             <Link
                 href={href}
-                className="font-albert rounded-md w-full group flex flex-col md:flex-row bg-white border-2 border-slate-400 p-4 gap-6 md:gap-6 text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] focus:outline-none focus:ring-4 focus:ring-blue-600/50"
+                className="font-albert rounded-md w-full group flex flex-col bg-white border-2 border-slate-200 gap-2 text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] focus:outline-none focus:ring-4 focus:ring-blue-600/50"
             >
             {/* Left: Image Section */}
-            <div className="relative w-full md:w-1/2 min-h-62.5 md:min-h-87.5 shrink-0 overflow-hidden bg-slate-100 rounded-md border-2 border-slate-200 filter">
+            <div className="relative aspect-4/3 overflow-hidden rounded-t-md">
                 <Image
                     src={imageSrc}
                     alt={`Thumbnail for ${title}`}
                     fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    sizes="100vw, 50vw"
                     loading="eager"
                 />
                 
@@ -47,45 +47,35 @@ const ProjectCard = ({
                 </div>
             </div>
 
-            {/* Right: Content Section */}
-            <div className="flex flex-col flex-1 pr-0 md:pr-6 w-full justify-center">
-                <h3 className="font-jersey text-3xl md:text-4xl text-slate-900 mb-2">
-                    {title}
+            {/* Content Section */}
+            <div className="flex flex-col flex-1 w-full justify-between p-6">
+              <div>
+                {/* Multiple Type Tags */}
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {types.map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-block px-2.5 py-1 text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-200/60 rounded-md"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 className="font-jersey text-2xl md:text-3xl text-slate-900 mb-2">
+                  {title}
                 </h3>
-                
-                <p className="text-slate-600 text-sm md:text-base mb-6">
-                    {description}
+
+                <p className="text-slate-600 text-md leading-relaxed mb-6">
+                  {description}
                 </p>
+              </div>
 
-      {/* Content Section */}
-      <div className="flex flex-col flex-1 w-full justify-between p-6">
-        <div>
-          {/* Multiple Type Tags */}
-          <div className="flex flex-wrap gap-2 mb-3">
-            {types.map((tag) => (
-              <span
-                key={tag}
-                className="inline-block px-2.5 py-1 text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-200/60 rounded-md"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <h3 className="font-jersey text-2xl md:text-3xl text-slate-900 mb-2">
-            {title}
-          </h3>
-
-          <p className="text-slate-600 text-md leading-relaxed mb-6">
-            {description}
-          </p>
-        </div>
-
-        {/* CTA Button */}
-        <div className="w-full inline-flex items-center justify-center py-2.5 rounded-lg text-sm font-medium bg-blue-600 text-white transition-colors group-hover:bg-blue-700">
-          View Project
-        </div>
-      </div>
+              {/* CTA Button */}
+              <div className="w-full inline-flex items-center justify-center py-2.5 rounded-lg text-sm font-medium bg-blue-600 text-white transition-colors group-hover:bg-blue-700">
+                View Project
+              </div>
+            </div>
     </Link>
   );
 };
